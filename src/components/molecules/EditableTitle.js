@@ -34,10 +34,10 @@ class EditableTitle extends Component {
 
         return <div>
             {titleIsEditable
-            ?   <Fragment>
+            ?   <form>
                     <input type='text' defaultValue={title}></input>
                     <Button onClick={this.updateTitle}>Submit</Button>
-                </Fragment>
+                </form>
             :   <Fragment>
                     <Title>{title}</Title>
                     <Button onClick={this.makeTitleEditable}>Reset</Button>
