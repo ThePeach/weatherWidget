@@ -8,7 +8,7 @@ const Title = ({headingSize, children}) => {
 }
 
 Title.propTypes = {
-    children: PropTypes.element.isRequired,
+    children: PropTypes.string.isRequired,
     headingSize: PropTypes.number
 }
 
