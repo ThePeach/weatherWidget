@@ -7,7 +7,8 @@ const Title = ({headingSize, children}) => {
     return <HeadingTag>{children}</HeadingTag>;
 }
 
-Title.PropTypes = {
+Title.propTypes = {
+    children: PropTypes.element.isRequired,
     headingSize: PropTypes.number
 }
 
