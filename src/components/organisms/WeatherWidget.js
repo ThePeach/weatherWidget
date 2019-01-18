@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import EditableTitle from '../molecules/EditableTitle';
 
 const WeatherWidget = ({currentCity}) => {
-    return <EditableTitle>{currentCity}</EditableTitle>
+    return <EditableTitle defaultTitle={currentCity}/>
 }
 
 WeatherWidget.propTypes = {
