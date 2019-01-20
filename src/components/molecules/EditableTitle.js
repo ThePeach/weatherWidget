@@ -36,7 +36,7 @@ class EditableTitle extends Component {
         return <div className={styles.wrapper}>
             {titleIsEditable
             ?   <form>
-                    <input type='text' defaultValue={title}></input>
+                    <input className={styles.input} type='text' defaultValue={title}></input>
                     <Button onClick={this.updateTitle} className={styles.btn}>Search</Button>
                 </form>
             :   <Fragment>
