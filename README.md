@@ -1,5 +1,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## What
+
+The App created here is a one-day weather widget written in React.
+
+## How
+
+This project uses the following technologies:
+
+- React
+- CSS Modules
+- Storybook
+
 ## Available Scripts
 
 In the project directory, you can run:
