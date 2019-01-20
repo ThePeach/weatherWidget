@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../atoms/Button';
 import Title from '../atoms/Title';
+import styles from './EditableTitle.module.css';
 
 class EditableTitle extends Component {
     constructor(props) {
@@ -32,15 +33,15 @@ class EditableTitle extends Component {
     render() {
         const { titleIsEditable, title } = this.state;
 
-        return <div>
+        return <div className={styles.wrapper}>
             {titleIsEditable
             ?   <form>
                     <input type='text' defaultValue={title}></input>
-                    <Button onClick={this.updateTitle}>Submit</Button>
+                    <Button onClick={this.updateTitle} className={styles.btn}>Search</Button>
                 </form>
             :   <Fragment>
                     <Title>{title}</Title>
-                    <Button onClick={this.makeTitleEditable}>Reset</Button>
+                    <Button onClick={this.makeTitleEditable} className={styles.btn}>×</Button>
                 </Fragment>
             }
         </div>

@@ -1,0 +1,19 @@
+@value colours: "../colours.css";
+@value mustard, mustard-light, mustard-dark from colours;
+
+.wrapper {
+    margin: 0 auto;
+}
+
+.btn {
+    color: mustard;
+    border: 1px solid mustard-light;
+    background-color: transparent;
+    padding: 0.5em 1em;
+}
+
+.btn:hover {
+    color: mustard-dark;
+    border-color: mustard;
+    cursor: pointer;
+}

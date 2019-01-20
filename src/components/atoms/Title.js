@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Title.module.css';
 
 const Title = ({headingSize, children}) => {
     const HeadingTag = `h${headingSize}`;
 
-    return <HeadingTag>{children}</HeadingTag>;
+    return <HeadingTag className={styles.main}>{children}</HeadingTag>;
 }
 
 Title.propTypes = {
