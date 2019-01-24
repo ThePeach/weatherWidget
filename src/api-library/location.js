@@ -1,6 +1,6 @@
 import { encodeQueryParams } from "./utils";
 
-const APIKEY = "";
+const APIKEY = process.env.REACT_APP_ACCUWEATHER_KEY;
 
 const location = {
   searchCity(city) {
