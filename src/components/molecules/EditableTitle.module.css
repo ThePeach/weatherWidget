@@ -3,23 +3,23 @@
 @value defaultPadding: 0.5em 1em;
 
 .wrapper {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .btn {
-    color: mustard;
-    border: 1px solid mustard-light;
-    background-color: transparent;
-    padding: defaultPadding;
+  color: mustard;
+  border: 1px solid mustard-light;
+  background-color: transparent;
+  padding: defaultPadding;
 }
 
 .btn:hover {
-    color: mustard-dark;
-    border-color: mustard;
-    cursor: pointer;
+  color: mustard-dark;
+  border-color: mustard;
+  cursor: pointer;
 }
 
 .input {
-    border: 1px solid mustard-light;
-    padding: defaultPadding;
+  border: 1px solid mustard-light;
+  padding: defaultPadding;
 }
