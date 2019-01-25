@@ -11,7 +11,12 @@ describe("searchCity functionality", () => {
         EnglishName: "London"
       }
     ];
-    global.fetch = jest.fn(() => Promise.resolve(expectedResultArray));
+    const mockResponse = {
+      json() {
+        return expectedResultArray;
+      }
+    };
+    global.fetch = jest.fn(() => Promise.resolve(mockResponse));
 
     return expect(location.searchCity(city)).resolves.toEqual(
       expectedResultArray[0]
@@ -22,7 +27,12 @@ describe("searchCity functionality", () => {
     const city = "asd";
     const expectedResult = null;
     const emptyResult = [];
-    global.fetch = jest.fn(() => Promise.resolve(emptyResult));
+    const mockResponse = {
+      json() {
+        return emptyResult;
+      }
+    };
+    global.fetch = jest.fn(() => Promise.resolve(mockResponse));
 
     return expect(location.searchCity(city)).resolves.toEqual(expectedResult);
   });
@@ -34,8 +44,13 @@ describe("currentConditions() functionality", () => {
     const expectedResult = location.dehydrateCurrentConditions(
       currentConditions[0]
     );
+    const mockResponse = {
+      json() {
+        return currentConditions;
+      }
+    };
 
-    global.fetch = jest.fn(() => Promise.resolve(currentConditions));
+    global.fetch = jest.fn(() => Promise.resolve(mockResponse));
 
     return expect(location.currentConditions(locationId)).resolves.toEqual(
       expectedResult

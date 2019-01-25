@@ -9,15 +9,14 @@ const location = {
 
     return fetch(
       `http://dataservice.accuweather.com/locations/v1/cities/search${urlParams}`
-    ).then(response => {
-      const data =
-        typeof response === "string" ? JSON.parse(response) : response;
-
-      if (data.length > 0) {
-        return data[0];
-      }
-      return null;
-    });
+    )
+      .then(response => response.json())
+      .then(data => {
+        if (data.length > 0) {
+          return data[0];
+        }
+        return null;
+      });
   },
 
   currentConditions(locationId, detailed = true) {
@@ -28,15 +27,15 @@ const location = {
     const urlParams = encodeQueryParams(params);
     const url = `http://dataservice.accuweather.com/currentconditions/v1/${locationId}${urlParams}`;
 
-    return fetch(url).then(response => {
-      const parsedData =
-        typeof response === "string" ? JSON.parse(response) : response;
-      const data =
-        (Array.isArray(parsedData) && parsedData.length) > 0
-          ? parsedData[0]
-          : parsedData;
-      return this.dehydrateCurrentConditions(data);
-    });
+    return fetch(url)
+      .then(response => response.json())
+      .then(parsedData => {
+        const data =
+          (Array.isArray(parsedData) && parsedData.length) > 0
+            ? parsedData[0]
+            : parsedData;
+        return this.dehydrateCurrentConditions(data);
+      });
   },
 
   dehydrateCurrentConditions(detailedConditions) {
