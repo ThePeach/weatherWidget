@@ -18,32 +18,34 @@ const location = {
       .then(response => response.json())
       .then(parsedData => {
         const data =
-          (Array.isArray(parsedData) && parsedData.length) > 0
-            ? parsedData[0]
-            : parsedData;
+          (Array.isArray(parsedData.list) && parsedData.list.length) > 0
+            ? parsedData.list[0]
+            : null;
         return this.dehydrateCurrentConditions(data);
       });
   },
 
   dehydrateCurrentConditions(conditions) {
-    const precipitation = conditions.rain["1h"] || conditions.rain["3h"];
+    const precipitation = conditions.rain
+      ? conditions.rain["1h"] || conditions.rain["3h"]
+      : false;
     const temperature = conditions.main.temp;
     const windSpeed = conditions.wind.speed;
     const windDirection = conditions.wind.deg;
 
     return {
       timestamp: conditions.dt,
+      text: conditions.weather[0].main,
       city: {
         name: conditions.name,
         id: conditions.id,
         country: conditions.sys.country
       },
-      text: conditions.weather.main,
+      coverage: conditions.clouds.all + "%",
       precipitation: {
         isRaining: !!precipitation,
-        amount: precipitation + "mm"
+        amount: (precipitation ? precipitation : 0) + "mm"
       },
-      coverage: conditions.clouds.all + "%",
       temperature: {
         amount: temperature + "ºC"
       },

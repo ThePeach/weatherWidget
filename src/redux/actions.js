@@ -1,67 +1,34 @@
 import {
-  SEARCH_CITY,
-  SEARCH_CITY_ERROR,
-  SEARCH_CITY_SUCCESS,
-  FETCH_FORECAST,
-  FETCH_FORECAST_ERROR,
-  FETCH_FORECAST_SUCCESS
+  GET_WEATHER,
+  GET_WEATHER_ERROR,
+  GET_WEATHER_SUCCESS
 } from "./actionTypes";
-import location from "../api-library/accuweather";
+import location from "../api-library/openweathermap";
 
-// city related actions:
-// { type: SEARCH_CITY }
-// { type: SEARCH_CITY_ERROR, error: "string" }
-// { type: SEARCH_CITY_SUCCESS, response: {} }
-export function searchCity(city) {
+// weather data related actions:
+// { type: GET_WEATHER }
+// { type: GET_WEATHER_ERROR, error: "string" }
+// { type: GET_WEATHER_SUCCESS, response: {} }
+export function requestData(city) {
   return {
-    type: SEARCH_CITY,
+    type: GET_WEATHER,
     city
   };
 }
 
-export function retrieveCity(cityData) {
+export function retrieveData(data) {
   return {
-    type: SEARCH_CITY_SUCCESS,
-    LocalizedName: cityData.LocalizedName,
-    EnglishName: cityData.EnglishName,
-    Key: cityData.Key
-  };
-}
-
-// thunk action creator
-// chaining all the calls related to retrieving a city
-export function fetchCity(city) {
-  return function(dispatch) {
-    dispatch(searchCity(city));
-    return location.searchCity(city).then(data => {
-      dispatch(retrieveCity(data));
-    });
-  };
-}
-
-// weather data related actions:
-// { type: FETCH_FORECAST }
-// { type: FETCH_FORECAST_ERROR, error: "string" }
-// { type: FETCH_FORECAST_SUCCESS, response: {} }
-export function requestData(cityId) {
-  return {
-    type: FETCH_FORECAST
-  };
-}
-
-export function retrieveData(weatherData) {
-  return {
-    type: FETCH_FORECAST_SUCCESS,
-    weatherData
+    type: GET_WEATHER_SUCCESS,
+    data
   };
 }
 
 // thunk action creator
 // chaining all the calls related to retrieving the weather data
-export function fetchData(cityId) {
+export function fetchData(city) {
   return function(dispatch) {
-    dispatch(requestData(cityId));
-    return location.currentConditions(cityId).then(data => {
+    dispatch(requestData(city));
+    return location.currentConditions(city).then(data => {
       dispatch(retrieveData(data));
     });
   };

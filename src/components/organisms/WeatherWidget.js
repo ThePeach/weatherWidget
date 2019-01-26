@@ -1,40 +1,31 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { fetchCity } from "../../redux/actions";
+import { fetchData } from "../../redux/actions";
 import EditableTitle from "../molecules/EditableTitle";
 
 class WeatherWidget extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props.currentCity);
-  }
-
   componentDidMount() {
-    const { fetchCity } = this.props;
-    fetchCity("London");
+    const { fetchData } = this.props;
+    fetchData("London");
   }
 
   render() {
     const { currentCity, weatherData } = this.props;
-    let temperature, text, coverage, precipitation;
-    if (weatherData) {
-      const { temperature, text, coverage, precipitation } = weatherData;
-    }
 
     return (
       <Fragment>
         {currentCity ? <EditableTitle defaultTitle={currentCity} /> : ""}
         {weatherData ? (
           <Fragment>
+            <div>Temperature {weatherData.temperature.amount}</div>
+            <div>Conditions: {weatherData.text}</div>
             <div>
-              {temperature.amount} - feels like {temperature.feel}
+              {weatherData.precipitation.isRaining
+                ? weatherData.precipitation.amount
+                : ""}
             </div>
-            <div>Conditions: {text}</div>
-            <div>{coverage}%</div>
-            <div>
-              Rain: {precipitation.isRaining ? precipitation.amount : "none"}
-            </div>
+            <div>Cloud coverage: {weatherData.coverage}</div>
           </Fragment>
         ) : (
           "no data"
@@ -48,14 +39,17 @@ WeatherWidget.propTypes = {
   currentCity: PropTypes.string,
   weatherData: PropTypes.shape({
     temperature: {
-      amount: PropTypes.string,
-      feel: PropTypes.string
+      amount: PropTypes.string
     },
     text: PropTypes.string,
     coverage: PropTypes.string,
     precipitation: {
       isRaining: PropTypes.bool,
       amount: PropTypes.string
+    },
+    wind: {
+      speed: PropTypes.string,
+      direction: PropTypes.string
     }
   })
 };
@@ -67,12 +61,12 @@ WeatherWidget.defaultProps = {
 
 const mapStateToProps = (state /*, ownProps */) => {
   return {
-    currentCity: state.city.english,
+    currentCity: `${state.city.name}, ${state.city.country}`,
     weatherData: state.weatherData
   };
 };
 
-const mapDispatchToProps = { fetchCity };
+const mapDispatchToProps = { fetchData };
 
 export default connect(
   mapStateToProps,

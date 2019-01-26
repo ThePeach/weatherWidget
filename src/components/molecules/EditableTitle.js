@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchCity } from "../../redux/actions";
+import { fetchData } from "../../redux/actions";
 import Button from "../atoms/Button";
 import Title from "../atoms/Title";
 import styles from "./EditableTitle.module.css";
@@ -26,10 +26,10 @@ class EditableTitle extends Component {
 
   updateTitle(event) {
     event.preventDefault();
-    const { fetchCity } = this.props;
+    const { fetchData } = this.props;
     const newTitle = event.target.previousElementSibling.value;
 
-    fetchCity(newTitle);
+    fetchData(newTitle);
 
     this.setState({
       title: newTitle,
@@ -84,5 +84,5 @@ EditableTitle.propTypes = {
 
 export default connect(
   null,
-  { fetchCity }
+  { fetchData }
 )(EditableTitle);
