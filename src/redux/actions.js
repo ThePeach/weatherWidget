@@ -6,7 +6,7 @@ import {
   FETCH_FORECAST_ERROR,
   FETCH_FORECAST_SUCCESS
 } from "./actionTypes";
-import location from "../api-library/location";
+import location from "../api-library/accuweather";
 
 // city related actions:
 // { type: SEARCH_CITY }

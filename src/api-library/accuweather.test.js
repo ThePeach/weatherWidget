@@ -1,5 +1,5 @@
-import location from "./location";
-import currentConditions from "./mockResponses/currentConditions";
+import location from "./accuweather";
+import currentConditions from "./mockResponses/accuweather-currentConditions";
 
 describe("searchCity functionality", () => {
   it("calls fetch() and resolves to the right data", () => {

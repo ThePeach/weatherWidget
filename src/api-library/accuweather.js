@@ -3,13 +3,13 @@ import { encodeQueryParams } from "./utils";
 const APIKEY = process.env.REACT_APP_ACCUWEATHER_KEY;
 
 const location = {
+  baseUrl: "http://dataservice.accuweather.com/",
+
   searchCity(city) {
     const params = { apikey: APIKEY, q: city };
     const urlParams = encodeQueryParams(params);
 
-    return fetch(
-      `http://dataservice.accuweather.com/locations/v1/cities/search${urlParams}`
-    )
+    return fetch(`${this.baseUrl}locations/v1/cities/search${urlParams}`)
       .then(response => response.json())
       .then(data => {
         if (data.length > 0) {
@@ -25,7 +25,7 @@ const location = {
       details: detailed
     };
     const urlParams = encodeQueryParams(params);
-    const url = `http://dataservice.accuweather.com/currentconditions/v1/${locationId}${urlParams}`;
+    const url = `${this.baseUrl}currentconditions/v1/${locationId}${urlParams}`;
 
     return fetch(url)
       .then(response => response.json())
