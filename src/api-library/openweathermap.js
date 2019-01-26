@@ -1,5 +1,4 @@
 import { encodeQueryParams } from "./utils";
-import { symlinkSync } from "fs";
 
 const APIKEY = process.env.REACT_APP_OPENWEATHERMAP_KEY;
 
