@@ -51,5 +51,5 @@ This is a very brief list of things that I would have loved to work on given mor
 - more tests: specifically more unit, e2e, and cross-browser testing.
 - more responsibility segregation in the code (I would have preferred separating React components from Redux "Containers")
 - a better UI, possibly even responsive, use of icons for displaying the weather conditions
-- a better UX, with improved interaction across different elements
+- a better UX, with improved interaction across different elements (e.g. use of geolocation APIs)
 - integrate the whole thing in a CI pipeline
