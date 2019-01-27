@@ -11,31 +11,34 @@ class WeatherWidget extends Component {
   }
 
   render() {
-    const { currentCity, weatherData } = this.props;
+    const { currentCity, currentCountry, weatherData, isFetching } = this.props;
+    const city = `${currentCity}, ${currentCountry}`;
 
     return (
       <Fragment>
-        {currentCity ? <EditableTitle defaultTitle={currentCity} /> : ""}
-        {weatherData ? (
-          <dl>
-            <dt>Temperature</dt>
-            <dd>{weatherData.temperature.amount}</dd>
-            <dt>Conditions</dt>
-            <dd>
-              {weatherData.text}
-              {weatherData.precipitation.isRaining
-                ? ` - ${weatherData.precipitation.amount}`
-                : ""}
-            </dd>
-            <dt>Cloud coverage</dt>
-            <dd>{weatherData.coverage}</dd>
-            <dt>Wind</dt>
-            <dd>
-              {weatherData.wind.speed} - {weatherData.wind.direction}
-            </dd>
-          </dl>
+        {isFetching || !weatherData ? (
+          <div className="loader">Loading...</div>
         ) : (
-          "no data"
+          <Fragment>
+            <EditableTitle defaultTitle={city} />
+            <dl>
+              <dt>Temperature</dt>
+              <dd>{weatherData.temperature.amount}</dd>
+              <dt>Conditions</dt>
+              <dd>
+                {weatherData.text}
+                {weatherData.precipitation.isRaining
+                  ? ` - ${weatherData.precipitation.amount}`
+                  : ""}
+              </dd>
+              <dt>Cloud coverage</dt>
+              <dd>{weatherData.coverage}</dd>
+              <dt>Wind</dt>
+              <dd>
+                {weatherData.wind.speed} - {weatherData.wind.direction}
+              </dd>
+            </dl>
+          </Fragment>
         )}
       </Fragment>
     );
@@ -43,32 +46,23 @@ class WeatherWidget extends Component {
 }
 
 WeatherWidget.propTypes = {
+  isFetching: PropTypes.bool.isRequired,
   currentCity: PropTypes.string,
-  weatherData: PropTypes.shape({
-    temperature: {
-      amount: PropTypes.string
-    },
-    text: PropTypes.string,
-    coverage: PropTypes.string,
-    precipitation: {
-      isRaining: PropTypes.bool,
-      amount: PropTypes.string
-    },
-    wind: {
-      speed: PropTypes.string,
-      direction: PropTypes.string
-    }
-  })
+  currentCountry: PropTypes.string,
+  weatherData: PropTypes.object
 };
 
 WeatherWidget.defaultProps = {
+  isFetching: true,
   currentCity: null,
   weatherData: null
 };
 
 const mapStateToProps = (state /*, ownProps */) => {
   return {
-    currentCity: `${state.city.name}, ${state.city.country}`,
+    isFetching: state.isFetching,
+    currentCity: state.city.name,
+    currentCountry: state.city.country,
     weatherData: state.weatherData
   };
 };
