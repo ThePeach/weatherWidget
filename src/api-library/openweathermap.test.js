@@ -3,9 +3,9 @@ import currentConditions from "./mockResponses/openweathermap-currentWeather";
 
 describe("currentConditions() functionality", () => {
   it("returns the current weather conditions for the requested location", () => {
-    const locationId = 328328;
+    const locationName = "Cairns";
     const expectedResult = location.dehydrateCurrentConditions(
-      currentConditions
+      currentConditions.list[0]
     );
     const mockResponse = {
       json() {
@@ -15,7 +15,7 @@ describe("currentConditions() functionality", () => {
 
     global.fetch = jest.fn(() => Promise.resolve(mockResponse));
 
-    return expect(location.currentConditions(locationId)).resolves.toEqual(
+    return expect(location.currentConditions(locationName)).resolves.toEqual(
       expectedResult
     );
   });

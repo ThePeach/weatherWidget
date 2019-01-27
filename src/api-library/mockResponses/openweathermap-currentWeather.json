@@ -1,34 +1,137 @@
 {
-  "coord": { "lon": 145.77, "lat": -16.92 },
-  "weather": [
+  "message": "accurate",
+  "cod": "200",
+  "count": 5,
+  "list": [
     {
-      "id": 803,
-      "main": "Clouds",
-      "description": "broken clouds",
-      "icon": "04n"
+      "id": 2643743,
+      "name": "London",
+      "coord": { "lat": 51.5073, "lon": -0.1277 },
+      "main": {
+        "temp": 5.89,
+        "pressure": 992,
+        "humidity": 88,
+        "temp_min": 5,
+        "temp_max": 7
+      },
+      "dt": 1548591600,
+      "wind": { "speed": 10.3, "deg": 300, "gust": 16.5 },
+      "sys": { "country": "GB" },
+      "rain": null,
+      "snow": null,
+      "clouds": { "all": 75 },
+      "weather": [
+        {
+          "id": 803,
+          "main": "Clouds",
+          "description": "broken clouds",
+          "icon": "04d"
+        }
+      ]
+    },
+    {
+      "id": 6058560,
+      "name": "London",
+      "coord": { "lat": 42.9886, "lon": -81.2467 },
+      "main": {
+        "temp": -10,
+        "pressure": 1009,
+        "humidity": 78,
+        "temp_min": -10,
+        "temp_max": -10
+      },
+      "dt": 1548590400,
+      "wind": { "speed": 4.6, "deg": 270, "gust": 7.7 },
+      "sys": { "country": "CA" },
+      "rain": null,
+      "snow": null,
+      "clouds": { "all": 75 },
+      "weather": [
+        {
+          "id": 803,
+          "main": "Clouds",
+          "description": "broken clouds",
+          "icon": "04n"
+        }
+      ]
+    },
+    {
+      "id": 4517009,
+      "name": "London",
+      "coord": { "lat": 39.8864, "lon": -83.4483 },
+      "main": {
+        "temp": -3.6,
+        "pressure": 1016,
+        "humidity": 85,
+        "temp_min": -6.2,
+        "temp_max": 0
+      },
+      "dt": 1548592500,
+      "wind": { "speed": 8.7, "deg": 280, "gust": 10.8 },
+      "sys": { "country": "US" },
+      "rain": null,
+      "snow": null,
+      "clouds": { "all": 90 },
+      "weather": [
+        {
+          "id": 804,
+          "main": "Clouds",
+          "description": "overcast clouds",
+          "icon": "04n"
+        }
+      ]
+    },
+    {
+      "id": 4298960,
+      "name": "London",
+      "coord": { "lat": 37.129, "lon": -84.0833 },
+      "main": {
+        "temp": 1.99,
+        "pressure": 1018,
+        "humidity": 91,
+        "temp_min": -1.2,
+        "temp_max": 3
+      },
+      "dt": 1548592500,
+      "wind": { "speed": 2.88, "deg": 236 },
+      "sys": { "country": "US" },
+      "rain": null,
+      "snow": null,
+      "clouds": { "all": 90 },
+      "weather": [
+        {
+          "id": 804,
+          "main": "Clouds",
+          "description": "overcast clouds",
+          "icon": "04n"
+        }
+      ]
+    },
+    {
+      "id": 5016884,
+      "name": "London",
+      "coord": { "lat": 43.5261, "lon": -93.0627 },
+      "main": {
+        "temp": -25.12,
+        "pressure": 1019,
+        "humidity": 63,
+        "temp_min": -28,
+        "temp_max": -22
+      },
+      "dt": 1548591480,
+      "wind": { "speed": 1.83, "deg": 309 },
+      "sys": { "country": "US" },
+      "rain": null,
+      "snow": null,
+      "clouds": { "all": 1 },
+      "weather": [
+        {
+          "id": 600,
+          "main": "Snow",
+          "description": "light snow",
+          "icon": "13n"
+        }
+      ]
     }
-  ],
-  "base": "cmc stations",
-  "main": {
-    "temp": 293.25,
-    "pressure": 1019,
-    "humidity": 83,
-    "temp_min": 289.82,
-    "temp_max": 295.37
-  },
-  "wind": { "speed": 5.1, "deg": 150 },
-  "clouds": { "all": 75 },
-  "rain": { "3h": 3 },
-  "dt": 1435658272,
-  "sys": {
-    "type": 1,
-    "id": 8166,
-    "message": 0.0166,
-    "country": "AU",
-    "sunrise": 1435610796,
-    "sunset": 1435650870
-  },
-  "id": 2172797,
-  "name": "Cairns",
-  "cod": 200
+  ]
 }

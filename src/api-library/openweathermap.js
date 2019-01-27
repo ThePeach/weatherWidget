@@ -41,17 +41,17 @@ const location = {
         id: conditions.id,
         country: conditions.sys.country
       },
-      coverage: conditions.clouds.all + "%",
+      coverage: conditions.clouds.all,
       precipitation: {
         isRaining: !!precipitation,
-        amount: (precipitation ? precipitation : 0) + "mm"
+        amount: precipitation ? precipitation : 0
       },
       temperature: {
-        amount: temperature + "ºC"
+        amount: temperature
       },
       wind: {
-        speed: windSpeed + "m/s",
-        direction: windDirection + "º"
+        speed: windSpeed,
+        direction: windDirection
       }
     };
   }

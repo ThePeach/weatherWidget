@@ -23,19 +23,19 @@ class WeatherWidget extends Component {
             <EditableTitle defaultTitle={city} />
             <dl>
               <dt>Temperature</dt>
-              <dd>{weatherData.temperature.amount}</dd>
+              <dd>{weatherData.temperature.amount}ºC</dd>
               <dt>Conditions</dt>
               <dd>
                 {weatherData.text}
                 {weatherData.precipitation.isRaining
-                  ? ` - ${weatherData.precipitation.amount}`
+                  ? ` - ${weatherData.precipitation.amount} mm`
                   : ""}
               </dd>
               <dt>Cloud coverage</dt>
-              <dd>{weatherData.coverage}</dd>
+              <dd>{weatherData.coverage} %</dd>
               <dt>Wind</dt>
               <dd>
-                {weatherData.wind.speed} - {weatherData.wind.direction}
+                {weatherData.wind.speed} m/s - {weatherData.wind.direction}º
               </dd>
             </dl>
           </Fragment>
