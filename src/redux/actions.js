@@ -23,6 +23,13 @@ export function retrieveData(data) {
   };
 }
 
+export function error() {
+  return {
+    type: GET_WEATHER_ERROR,
+    error: "unable to read the data"
+  };
+}
+
 // thunk action creator
 // chaining all the calls related to retrieving the weather data
 export function fetchData(city) {
