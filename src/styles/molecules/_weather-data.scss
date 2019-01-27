@@ -1,9 +1,50 @@
 .weather-data {
-  &__temp--label {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "temp cond"
+    "temp coverage"
+    "temp wind";
+
+  &__temp--label,
+  &__conditions--label,
+  &__cloud--label,
+  &__wind--label {
     display: none;
   }
   &__temp {
-    font-size: font-size(2);
+    font-size: font-size(4);
     color: $c-pink;
+    grid-area: temp;
+
+    &::after {
+      content: "ºC";
+      font-size: font-size(0);
+    }
+  }
+
+  &__conditions,
+  &__cloud,
+  &__wind {
+    text-align: left;
+  }
+
+  &__conditions {
+    grid-area: cond;
+  }
+
+  &__cloud {
+    grid-area: coverage;
+    &::before {
+      content: "Cloud coverage: ";
+    }
+  }
+
+  &__wind {
+    grid-area: wind;
+    &::before {
+      content: "Wind: ";
+    }
   }
 }
