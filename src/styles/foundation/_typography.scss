@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Aleo");
+
+$font-family-base: "Aleo", serif;
+$font-size-base: 1rem;
+
+@function font-size($size) {
+  $modularscale-ratio: 1.6;
+  @if ($size == 0) {
+    @return $font-size-base;
+  }
+  @return $font-size-base * $modularscale-ratio * $size;
+}

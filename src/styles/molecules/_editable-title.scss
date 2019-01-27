@@ -1,0 +1,26 @@
+.editable-title {
+  &__title,
+  input#{&}__input {
+    font-size: font-size(1);
+  }
+
+  &__title {
+    display: inline;
+    font-weight: normal;
+  }
+
+  &__input {
+    border: $border-thickness solid $c-blue-dark;
+    background-color: $c-blue-light;
+  }
+
+  &__input::selection {
+    background-color: $c-pink;
+  }
+
+  &__button {
+    font-size: font-size(1);
+    margin-left: $gap-small;
+    border-color: $c-blue-dark;
+  }
+}
