@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { fetchData } from "../../redux/actions";
 import EditableTitle from "../molecules/EditableTitle";
 
-class WeatherWidget extends Component {
+export class WeatherWidget extends Component {
   componentDidMount() {
     const { fetchData } = this.props;
     fetchData("London");
