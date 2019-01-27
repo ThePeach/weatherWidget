@@ -1,5 +1,9 @@
 {
-  "name": "notes",
+  "name": "weather-widget",
+  "description": "A basic Weather Widget made with React and Redux",
+  "author": {
+    "name": "Matteo Pescarin"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
