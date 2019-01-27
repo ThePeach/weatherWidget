@@ -1,80 +1,55 @@
+# What
+
+The App created here is a current weather widget written in React.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## What
+It uses the following technologies:
 
-The App created here is a one-day weather widget written in React.
+- React
+- Redux
+- Redux thunk
+- SASS (on top of Atomic Design)
 
 ## How
 
-This project uses the following technologies:
+To start the project simply follow these steps:
 
-- React
-- CSS Modules
-- Storybook
+    $ npm install
 
-## Available Scripts
+Register an account at [OpenWeatherMap](https://home.openweathermap.org/), copy and paste the app key given in the [.env](.env) file.
 
-In the project directory, you can run:
+Once done, it's possible to start the application with
 
-### `npm start`
+    $ npm start
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in the development mode.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser (should open automatically).
 
-### `npm test`
+To run tests, just run
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    $ npm test
 
-### `npm run build`
+### Implementation notes (the struggle is real)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The project initially used [AccuWeather APIs](https://developer.accuweather.com/). It required two different calls to (1) get the city key code, (2) call the current weather API endpoint. This proved to be quite challenging in terms of design of the Redux store and how to manage it from a UX perspective. I was way too much into the implementation when I realised that the free version of the API has got a very low limit (50 calls a day), which is unrealistic especially when trying to develop an application using those endpoint.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+I've immediately moved over to the [OpenWeatherMap APIs](https://openweathermap.org) which proved to be much more fault tolerant and also simplified the overall application, since now I don't need to fetch the city first before querying for the current weather conditions.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The two implementation are still availble in the code together with the relative unit tests.
 
-### `npm run eject`
+The APIs calls have been wrapped in an internal library for ease of use and better maintainability. The returned data is also being dehyrdatated to ease the integration with the rest of the application.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Testing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## TODO
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This is a very brief list of things that I would have loved to work on given more time (thanks AccuWeather):
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- error handling (the functionality is there just to be finished)
+- more tests: specifically more unit, e2e, and cross-browser testing.
+- more responsibility segregation in the code (I would have preferred separating React components from Redux "Containers")
+- a better UI, possibly even responsive, use of icons for displaying the weather conditions
+- a better UX, with improved interaction across different elements
+- integrate the whole thing in a CI pipeline
