@@ -1,7 +1,0 @@
-@value colours: "../colours.css";
-@value mustard-darker from colours;
-
-.main {
-  color: mustard-darker;
-  font-weight: normal;
-}

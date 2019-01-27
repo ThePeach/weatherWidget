@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { fetchData } from "../../redux/actions";
 import Button from "../atoms/Button";
 import Title from "../atoms/Title";
-import styles from "./EditableTitle.module.css";
 
 class EditableTitle extends Component {
   constructor(props) {
@@ -51,18 +50,28 @@ class EditableTitle extends Component {
     const { titleIsEditable, title } = this.state;
 
     return (
-      <div className={styles.wrapper}>
+      <div className="editable-title">
         {titleIsEditable ? (
           <form>
-            <input className={styles.input} type="text" defaultValue={title} />
-            <Button onClick={this.updateTitle} className={styles.btn}>
+            <input
+              type="text"
+              defaultValue={title}
+              className="editable-title__input"
+            />
+            <Button
+              onClick={this.updateTitle}
+              className="editable-title__button"
+            >
               Search
             </Button>
           </form>
         ) : (
           <Fragment>
-            <Title>{title}</Title>
-            <Button onClick={this.makeTitleEditable} className={styles.btn}>
+            <Title className="editable-title__title">{title}</Title>
+            <Button
+              onClick={this.makeTitleEditable}
+              className="editable-title__button"
+            >
               ×
             </Button>
           </Fragment>
@@ -75,12 +84,6 @@ class EditableTitle extends Component {
 EditableTitle.propTypes = {
   defaultTitle: PropTypes.string.isRequired
 };
-
-// const mapStateToProps = state => {
-//   return {
-//     defaultTitle: state.city.english
-//   };
-// };
 
 export default connect(
   null,

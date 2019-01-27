@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import WeatherWidget from "./components/organisms/WeatherWidget";
-import "./App.css";
+import "./styles/main.scss";
 
 class App extends Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <main>
           <WeatherWidget />
         </main>

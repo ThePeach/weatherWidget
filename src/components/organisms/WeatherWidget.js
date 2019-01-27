@@ -15,13 +15,13 @@ class WeatherWidget extends Component {
     const city = `${currentCity}, ${currentCountry}`;
 
     return (
-      <Fragment>
+      <div className="weather-widget">
         {isFetching || !weatherData ? (
           <div className="loader">Loading...</div>
         ) : (
           <Fragment>
             <EditableTitle defaultTitle={city} />
-            <dl>
+            <dl className="weather-data">
               <dt>Temperature</dt>
               <dd>{weatherData.temperature.amount}ºC</dd>
               <dt>Conditions</dt>
@@ -40,7 +40,7 @@ class WeatherWidget extends Component {
             </dl>
           </Fragment>
         )}
-      </Fragment>
+      </div>
     );
   }
 }

@@ -1,20 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "./Title.module.css";
 
-const Title = ({ headingSize, children }) => {
+const Title = ({ headingSize, children, className }) => {
   const HeadingTag = `h${headingSize}`;
 
-  return <HeadingTag className={styles.main}>{children}</HeadingTag>;
+  return <HeadingTag className={className}>{children}</HeadingTag>;
 };
 
 Title.propTypes = {
   children: PropTypes.string.isRequired,
-  headingSize: PropTypes.number
+  headingSize: PropTypes.number,
+  className: PropTypes.string
 };
 
 Title.defaultProps = {
-  headingSize: 2
+  headingSize: 2,
+  className: null
 };
 
 export default Title;

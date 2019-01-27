@@ -5,7 +5,6 @@ import { createLogger } from "redux-logger";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
-import "./index.css";
 import App from "./App";
 import weatherWidgetReducers from "./redux/reducers";
 
