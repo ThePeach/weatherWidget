@@ -17,16 +17,23 @@ class WeatherWidget extends Component {
       <Fragment>
         {currentCity ? <EditableTitle defaultTitle={currentCity} /> : ""}
         {weatherData ? (
-          <Fragment>
-            <div>Temperature {weatherData.temperature.amount}</div>
-            <div>Conditions: {weatherData.text}</div>
-            <div>
+          <dl>
+            <dt>Temperature</dt>
+            <dd>{weatherData.temperature.amount}</dd>
+            <dt>Conditions</dt>
+            <dd>
+              {weatherData.text}
               {weatherData.precipitation.isRaining
-                ? weatherData.precipitation.amount
+                ? ` - ${weatherData.precipitation.amount}`
                 : ""}
-            </div>
-            <div>Cloud coverage: {weatherData.coverage}</div>
-          </Fragment>
+            </dd>
+            <dt>Cloud coverage</dt>
+            <dd>{weatherData.coverage}</dd>
+            <dt>Wind</dt>
+            <dd>
+              {weatherData.wind.speed} - {weatherData.wind.direction}
+            </dd>
+          </dl>
         ) : (
           "no data"
         )}
