@@ -13,6 +13,8 @@ It uses the following technologies:
 - Redux thunk
 - SASS (on top of Atomic Design)
 
+It's been developed using **Node 11** and tested in **Firefox** and **Chrome** latest.
+
 ## How
 
 To start the project simply follow these steps:
