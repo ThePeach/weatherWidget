@@ -2,6 +2,8 @@
 
 The App created here is a current weather widget written in React.
 
+![Screenshot](./Screenshot.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 It uses the following technologies:
