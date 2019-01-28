@@ -2,6 +2,8 @@
 
 The App created here is a current weather widget written in React.
 
+The application can be accessed at [weather-widget-react.netlify.com](https://weather-widget-react.netlify.com/).
+
 ![Screenshot](./Screenshot.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

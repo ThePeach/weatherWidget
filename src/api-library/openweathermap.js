@@ -3,7 +3,7 @@ import { encodeQueryParams } from "./utils";
 const APIKEY = process.env.REACT_APP_OPENWEATHERMAP_KEY;
 
 const location = {
-  baseUrl: "http://api.openweathermap.org/data/2.5/",
+  baseUrl: "https://api.openweathermap.org/data/2.5/",
 
   currentConditions(city) {
     const params = {
